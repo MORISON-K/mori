@@ -1,8 +1,8 @@
 name: Metrics
 
 on:
-  schedule: [{cron: "0 0 * * 0"}]  # Runs every Sunday
-  workflow_dispatch:              # Allow manual runs
+  schedule: [{ cron: "0 0 * * 0" }] # Runs every Sunday
+  workflow_dispatch: # Allow manual runs
 
 jobs:
   github-metrics:
@@ -12,10 +12,13 @@ jobs:
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: MORISON-K
-          base: ""
+          base: header, activity, community, repositories, metadata
           config_timezone: Africa/Kampala
 
-          # Radar chart plugin
+          # Output configuration
+          filename: metrics.svg
+
+          # Activity plugin
           plugin_activity: yes
           plugin_activity_limit: 5
           plugin_activity_days: 14
