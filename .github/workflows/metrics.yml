@@ -17,6 +17,9 @@ jobs:
 
           # Output configuration
           filename: metrics.svg
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          committer_branch: main
+          committer_message: "Update metrics"
 
           # Activity plugin
           plugin_activity: yes
